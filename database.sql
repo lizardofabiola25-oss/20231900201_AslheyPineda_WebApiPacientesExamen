@@ -1,18 +1,37 @@
-CREATE DATABASE [20231900201_AslheyPineda_Pacientes];
+USE tempdb
 GO
-USE [20231900201_AslheyPineda_Pacientes];
+
+-- Eliminar bd si existe
+DROP DATABASE IF EXISTS BdPacientes
 GO
-CREATE TABLE Pacientes (
-    Id INT IDENTITY(1,1) PRIMARY KEY,
-    NombreCompleto NVARCHAR(200) NOT NULL,
-    NumeroIdentidad NVARCHAR(13) NOT NULL,
-    FechaNacimiento DATE NOT NULL,
-    Telefono NVARCHAR(20) NOT NULL,
-    Activo BIT NOT NULL DEFAULT 1
-);
+
+-- Crear bd y tabla
+CREATE DATABASE BdPacientes
 GO
-INSERT INTO Pacientes VALUES
-('Ana María López', '0801199012345', '1990-05-15', '99887766', 1),
-('Carlos Martínez', '0801198554321', '1985-08-20', '88776655', 1),
-('María Fernanda Díaz', '0801200098765', '2000-03-10', '77665544', 1);
+
+USE BdPacientes
+GO
+
+CREATE TABLE Pacientes(
+	Id INT IDENTITY(1,1) NOT NULL,
+	NombreCompleto VARCHAR(500) NOT NULL,
+	NumeroIdentidad VARCHAR(20) NOT NULL,
+	FechaNacimiento DATETIME NOT NULL,
+	Telefono VARCHAR(10) NOT NULL,
+	Activo BIT DEFAULT 1 NOT NULL
+)
+GO
+
+INSERT INTO Pacientes (
+	NombreCompleto, 
+	NumeroIdentidad, 
+	FechaNacimiento,
+	Telefono)
+VALUES
+('Juan Perez', '0319197800322', '2000-01-01', '88994455'),
+('John Connor', '0319197800324', '2002-01-01', '88994488'),
+('Aquiles Brinco', '0319197800323', '2009-01-01', '88994411')
+GO
+
+SELECT * FROM Pacientes
 GO
