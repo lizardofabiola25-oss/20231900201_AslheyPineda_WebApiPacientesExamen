@@ -1,0 +1,6 @@
+@_20231900201_AslheyPineda_WebApiPacientesExamen_HostAddress = http://localhost:5206
+
+GET {{_20231900201_AslheyPineda_WebApiPacientesExamen_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
